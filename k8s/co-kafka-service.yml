@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: co-kafka-service
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 4000
+  selector:
+    app: co-kafka

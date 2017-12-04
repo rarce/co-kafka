@@ -1,0 +1,59 @@
+{
+  "scripts": {
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "pretest": "yarn tslint",
+    "compile": "tsc --outDir ./build",
+    "clean": "rm -rf build/*",
+    "start": "node ./build",
+    "watch": "nodemon -e ts -w ./src -x yarn watch:serve",
+    "watch:serve": "ts-node --inspect src/index.ts",
+    "run:dev": "nodemon .",
+    "test": "jest",
+    "coverage": "jest --mapCoverage --coverage --coverageReporters html"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "setupFiles": [
+      "./src/initialization/index.ts"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "src(/.*)?/__tests__/.*\\.(ts|tsx|js)$"
+  },
+  "name": "co-kafka",
+  "version": "1.0.0",
+  "description": "Kafka example app",
+  "keywords": "comparaonline,microservice",
+  "main": "index.js",
+  "private": true,
+  "author": {
+    "name": "Roberto Arce",
+    "email": "robertoarcee@gmail.com"
+  },
+  "repository": "comparaonline/co-kafka",
+  "devDependencies": {
+    "@types/config": "^0.0.33",
+    "@types/express": "^4.0.39",
+    "@types/jest": "^21.1.8",
+    "@types/morgan": "^1.7.35",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "ts-jest": "^21.2.4",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "config": "^1.28.1",
+    "express": "^4.16.2",
+    "express-healthcheck": "^0.1.0",
+    "morgan": "^1.9.0",
+    "reflect-metadata": "^0.1.10"
+  }
+}
