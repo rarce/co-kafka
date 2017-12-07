@@ -3,5 +3,27 @@
     "port": 4000,
     "baseUrl": "/co-kafka",
     "logFormat": "tiny"
+  },
+  "kafka": {
+    "producer": {
+      "client.id": "kafka",
+      "metadata.broker.list": "broker:9092",
+      "compression.codec": "gzip",
+      "retry.backoff.ms": 200,
+      "message.send.max.retries": 10,
+      "socket.keepalive.enable": true,
+      "queue.buffering.max.messages": 100000,
+      "queue.buffering.max.ms": 1000,
+      "batch.num.messages": 1000000
+    },
+    "consumer": {
+      "group.id": "test-group",
+      "metadata.broker.list": "broker:9092"
+    },
+    "consumer-topic": {
+    },
+    "rest": { 
+      "url": "http://broker:8082" 
+    }
   }
 }
