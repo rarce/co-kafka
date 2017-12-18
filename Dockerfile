@@ -14,8 +14,9 @@ RUN \
     bash \
     make \
     g++ \
-    python \
-    libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main \
+    python && \
+  # Library packages are keeped in the final Docker image
+  apk add --no-cache libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main \
     librdkafka-dev --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community \
     && \
   # Install node packages
@@ -24,8 +25,9 @@ RUN \
   # Clean up build packages.
   apk del --purge .build-packages \
     && \
+  # Cleanup yarn
   yarn cache clean
 
 COPY build config ./code/
 
-CMD ["yarn", "start"]
+CMD ["tail", "-f", "/dev/null"]
