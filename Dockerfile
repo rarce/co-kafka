@@ -6,6 +6,11 @@ ENV NODE_ENV=${ENVIRONMENT}
 EXPOSE 4000
 WORKDIR /code
 
+RUN \ 
+  # librdkafka binaries and dev libraries
+  apk add --no-cache librdkafka-dev --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community \
+    libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main
+
 COPY package.json yarn.lock ./
 
 RUN \
@@ -15,10 +20,6 @@ RUN \
     make \
     g++ \
     python \
-    libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main \
-    && \
-  # Library packages are keeped in the final Docker image
-  apk add --no-cache librdkafka-dev --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community \
     && \
   # Install node packages
   BUILD_LIBRDKAFKA=0 yarn install \
