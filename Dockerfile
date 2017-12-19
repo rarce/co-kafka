@@ -14,10 +14,11 @@ RUN \
     bash \
     make \
     g++ \
-    python && \
+    python \
+    libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main \
+    && \
   # Library packages are keeped in the final Docker image
-  apk add --no-cache libressl --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main \
-    librdkafka-dev --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community \
+  apk add --no-cache librdkafka-dev --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community \
     && \
   # Install node packages
   BUILD_LIBRDKAFKA=0 yarn install \
