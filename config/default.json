@@ -24,6 +24,9 @@
     },
     "rest": { 
       "url": "http://broker:8082" 
+    },
+    "schema_registry": {
+      "url": "http://schema_registry:8081"
     }
   }
 }

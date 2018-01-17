@@ -2,7 +2,7 @@
   "scripts": {
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "pretest": "yarn tslint",
-    "compile": "tsc --outDir ./build",
+    "build": "tsc --outDir ./build",
     "clean": "rm -rf build/*",
     "start": "node ./build",
     "watch": "nodemon -e ts -w ./src -x yarn watch:serve",
@@ -51,11 +51,14 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
+    "avsc": "^5.1.2",
     "config": "^1.28.1",
     "express": "^4.16.2",
     "express-healthcheck": "^0.1.0",
     "morgan": "^1.9.0",
     "node-rdkafka": "^2.2.1",
-    "reflect-metadata": "^0.1.10"
+    "reflect-metadata": "^0.1.10",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   }
 }

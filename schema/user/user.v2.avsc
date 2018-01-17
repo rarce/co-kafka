@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "User",
+  "doc": "Basic Schema for a user",
+  "fields": [{
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "default": ""
+    }
+  ]
+}
